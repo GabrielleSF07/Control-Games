@@ -1,3 +1,5 @@
+package controlgames.controlgamesbd.view;
+
 
 
 /*
@@ -20,7 +22,7 @@ public class MeusJogosUsuario extends javax.swing.JFrame {
        
         
     }
-}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -363,4 +365,5 @@ public class MeusJogosUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeJogo;
     // End of variables declaration//GEN-END:variables
+
 }
