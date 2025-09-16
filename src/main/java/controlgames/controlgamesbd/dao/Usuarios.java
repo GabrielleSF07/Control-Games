@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class Clientes {
+public class Usuarios {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

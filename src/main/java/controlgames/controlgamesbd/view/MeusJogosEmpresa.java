@@ -1,4 +1,4 @@
-package controlgames.controlgamesbd.view;
+
 
 
 import java.util.List;
@@ -14,58 +14,11 @@ import java.util.List;
  */
 public class MeusJogosEmpresa extends javax.swing.JFrame {
    
-   private static Desenvolvedores d;
-   private static Usuarios u;
-   private static BancoTemporario banco ;
-   private static Jogos jogos;
-   private int indexAtual = 0;
-    /**
-     * Creates new form MeusJogosEmpresa
-     */
-    public MeusJogosEmpresa(Desenvolvedores d, BancoTemporario banco) {
+   
+    public MeusJogosEmpresa() {
         
         initComponents();
-        btnMeusJogos.setEnabled(false);
-        this.d = d;
-        this.jogos = jogos;
        
-        
-    Jogos jogo = banco.getJogos().get(indexAtual); 
-    
-    txtNome.setText(jogo.getDesenvolvedora());
-    txtNomeJogo.setText(jogo.getNome());
-    txtValor.setText(String.format("%.2f", jogo.getValor())); 
-    txtLucro.setText(String.format("%.2f", jogo.getLucro())); 
-    txtStatus.setText(jogo.getStatus()); 
-    txtCategoria.setText(jogo.getCategoria());
-    txtFaixaEtaria.setText(String.valueOf(jogo.getFaixaEtaria()));
-    txtDescricao.setText(jogo.getDescricao());
-   
-    int totalDoJogo = jogo.getTotalVendas(banco.getUsuarios());
-    txtQntdeVendas.setText(String.valueOf(totalDoJogo));
-
-    double lucroDoJogo = totalDoJogo * jogo.getValor();
-    txtLucro.setText(String.format("%.2f", lucroDoJogo));
-    
-    }
-    
-    private void atualizarCampos() {
-    Jogos jogo = banco.getJogos().get(indexAtual); 
-    
-    txtNomeJogo.setText(jogo.getNome());
-    txtQntdeVendas.setText(String.valueOf(jogo.registrarVenda())); 
-    txtValor.setText(String.valueOf(jogo.getValor()));
-    txtLucro.setText(String.valueOf(jogo.getLucro())); 
-    txtStatus.setText(jogo.getStatus()); 
-    txtCategoria.setText(jogo.getCategoria());
-    txtFaixaEtaria.setText(String.valueOf(jogo.getFaixaEtaria()));
-    txtDescricao.setText(jogo.getDescricao());
-    
-    int totalDoJogo = jogo.getTotalVendas(banco.getUsuarios());
-    txtQntdeVendas.setText(String.valueOf(totalDoJogo));
-
-    double lucroDoJogo = totalDoJogo * jogo.getValor();
-    txtLucro.setText(String.format("%.2f", lucroDoJogo));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -438,35 +391,29 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
-    NovoJogo tela = new NovoJogo(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+ 
     }//GEN-LAST:event_btnNovoJogoActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-    MeuPerfilEmpresa tela = new MeuPerfilEmpresa(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    if(indexAtual < banco.getJogos().size() - 1) {
-        indexAtual++;
-        atualizarCampos();
-    }   
+   // if(indexAtual < banco.getJogos().size() - 1) {
+      //  indexAtual++;
+     //   atualizarCampos();
+  //  }   
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    if(indexAtual > 0) {
-        indexAtual--;
-        atualizarCampos();
-    }   
+   // if(indexAtual > 0) {
+     //   indexAtual--;
+    //    atualizarCampos();
+   // }   
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
@@ -478,9 +425,6 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLucroActionPerformed
 
     private void btnEditarJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarJogoActionPerformed
-   EditarJogo tela = new EditarJogo(indexAtual); 
-    tela.setVisible(true);
-    this.dispose();
 
     }//GEN-LAST:event_btnEditarJogoActionPerformed
 
@@ -534,7 +478,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MeusJogosEmpresa(d, banco).setVisible(true);
+                new MeusJogosEmpresa().setVisible(true);
             }
         });
     }

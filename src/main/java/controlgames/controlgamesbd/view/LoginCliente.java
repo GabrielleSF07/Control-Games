@@ -1,6 +1,7 @@
 package controlgames.controlgamesbd.view;
 
 
+import controlgames.controlgamesbd.dao.Usuarios;
 import javax.swing.JOptionPane;
 
 /*
@@ -14,14 +15,14 @@ import javax.swing.JOptionPane;
  */
 public class LoginCliente extends javax.swing.JFrame {
     private static Usuarios u;
-    private static BancoTemporario banco ;
+
     /**
      * Creates new form LoginCliente
      */
-    public LoginCliente(Usuarios u, BancoTemporario banco) {
+    public LoginCliente(Usuarios u) {
         initComponents();
          this.u = u;
-        this.banco = banco;
+    
         btnLogin.setEnabled(false);
     }
 
@@ -209,9 +210,7 @@ public class LoginCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+  
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -231,21 +230,9 @@ public class LoginCliente extends javax.swing.JFrame {
     boolean achou = false;
     Usuarios usuarioLogado = null;
     
-    for(Usuarios u : BancoTemporario.getUsuarios()){
-        if(u.getEmail().equals(email) && u.getSenha().equals(senha)){
-            achou = true;
-            usuarioLogado = u;
-            break;
-        }
-    }
+   
     
-    if(achou){
-        MeuPerfilUsuario tela = new MeuPerfilUsuario(usuarioLogado, banco);
-        tela.setVisible(true);
-        this.dispose();
-    } else {
-        JOptionPane.showMessageDialog(this, "Email ou senha inválidos!"); 
-    }
+   
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
@@ -278,7 +265,7 @@ public class LoginCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginCliente(u, banco).setVisible(true);
+                new LoginCliente(u).setVisible(true);
             }
         });
     }

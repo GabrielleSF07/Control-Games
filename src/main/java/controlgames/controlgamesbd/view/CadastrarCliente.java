@@ -4,6 +4,9 @@
  */
 package controlgames.controlgamesbd.view;
 
+import controlgames.controlgamesbd.dao.Usuarios;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabrielle
@@ -269,12 +272,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
             return;
         }
 
-        Usuarios u = new Usuarios(nome, email, senha, idade, 0);
-        BancoTemporario.getUsuarios().add(u);
-
-        MeuPerfilUsuario tela = new MeuPerfilUsuario(u, banco);
-        tela.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
@@ -282,9 +279,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        LoginCliente tela = new LoginCliente(u, banco);
-        tela.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenvolvedorActionPerformed

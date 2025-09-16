@@ -4,19 +4,30 @@
 
 package controlgames.controlgamesbd.dao;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+ import jakarta.persistence.EntityManager;
+  import jakarta.persistence.EntityManagerFactory;
+  import jakarta.persistence.Persistence;
+  
+  public class ControlGamesConnector {
+    private static final String PERSISTENCE_UNIT = "control_games";
+    
+    private static EntityManager em;
+    private static EntityManagerFactory fabrica;
+    
+    public static EntityManager getEntityManager(){
+        if(fabrica == null || !fabrica.isOpen())
+            fabrica = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+        
+        if(em == null || !em.isOpen())
+            em = fabrica.createEntityManager();
 
-/**
- *
- * @author Gabrielle
- */
-public class ControlGamesConnector {
-
-    public static void main(String[] args) {
-         EntityManagerFactory fabricaEntidade = Persistence.createEntityManagerFactory("control_games");
-            EntityManager manager = fabricaEntidade.createEntityManager();                        
-                      
+        return em;
     }
-}
+    
+    public static void closeEntityManager(){
+        if(em.isOpen() && em != null){
+            em.close();
+            fabrica.close();
+        }
+    }
+  }

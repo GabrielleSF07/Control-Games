@@ -13,16 +13,14 @@ import javax.swing.JOptionPane;
  * @author Gabrielle
  */
 public class SouDesenvolvedor extends javax.swing.JFrame {
-    private static Usuarios u;
-    private static BancoTemporario banco ;
+ 
     /**
      * Creates new form SouDesenvolvedor
      */
     public SouDesenvolvedor() {
         initComponents();
         btnDesenvolvedor.setEnabled(false);
-         this.u = u;
-        this.banco = banco;
+        
     }
 
     /**
@@ -230,15 +228,11 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-    LoginCliente tela = new LoginCliente(u,banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenvolvedorActionPerformed
@@ -250,20 +244,7 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-    String email = txtEmail.getText();
-    String senha = txtSenha.getText();
-    String nome = txtNomeEmpresa.getText();
-    
-    BancoTemporario banco = new BancoTemporario();
-    Desenvolvedores logado = banco.login(nome, email, senha);
-    
-    if (logado != null){
-     MeuPerfilEmpresa tela = new MeuPerfilEmpresa(logado, banco);
-     tela.setVisible(true);
-     this.dispose();
-    } else {
-      JOptionPane.showMessageDialog(rootPane, "Email ou senha inválidos");
-    }
+   
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**

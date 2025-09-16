@@ -1,5 +1,7 @@
 package controlgames.controlgamesbd.view;
 
+import controlgames.controlgamesbd.dao.Usuarios;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,28 +13,26 @@ package controlgames.controlgamesbd.view;
  */
 public class MeuPerfilUsuario extends javax.swing.JFrame {
     private static Usuarios u;
-    private static BancoTemporario banco;
+  
 
     
     /**
      * Creates new form MeuPerfilUsuario
      */
-    public MeuPerfilUsuario(Usuarios u, BancoTemporario banco) {
+    public MeuPerfilUsuario(Usuarios u) {
         initComponents();
         btnPerfil.setEnabled(false);
         this.u = u;
-        this.banco = banco;
+        
    
-        txtNomeU.setText(u.getNome());
-        txtNome.setText(u.getNome());
-        txtEmail.setText(u.getEmail());
-        txtSenha.setText(u.getSenha());
-        txtQtdJogos.setText(String.valueOf(u.getJogosComprados().size()));
+        //txtNomeU.setText(u.getNome());
+      //  txtNome.setText(u.getNome());
+      //  txtEmail.setText(u.getEmail());
+      //  txtSenha.setText(u.getSenha());
+       // txtQtdJogos.setText(String.valueOf(u.getJogosComprados().size()));
     }
 
-    MeuPerfilUsuario(Usuarios usuarioLogado, Usuarios u, BancoTemporario banco) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
  
 
@@ -247,15 +247,11 @@ public class MeuPerfilUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-    MeusJogosUsuario tela = new MeusJogosUsuario(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+  
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-    Loja tela = new Loja(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnLojaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
@@ -263,9 +259,7 @@ public class MeuPerfilUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -273,10 +267,10 @@ public class MeuPerfilUsuario extends javax.swing.JFrame {
      */
   public static void main(String args[]) {
     Usuarios u = new Usuarios();
-    BancoTemporario banco = new BancoTemporario(); 
+
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new MeuPerfilUsuario(u, banco).setVisible(true);
+            new MeuPerfilUsuario(u).setVisible(true);
         }
     });
 }

@@ -13,26 +13,17 @@ import javax.swing.JOptionPane;
  * @author Gabrielle
  */
 public class NovoJogo extends javax.swing.JFrame {
-    private Desenvolvedores d;
-     private static Usuarios u;
-    private static BancoTemporario banco ;
+ 
     
     /**
      * Creates new form NovoJogo
      */
-    public NovoJogo(Desenvolvedores d, BancoTemporario banco) {
+    public NovoJogo() {
         initComponents();
         btnNovoJogo.setEnabled(false);
-        this.d = d;
-         this.u = u;
-        this.banco = banco;
+       
         
-        
-        txtNome.setText(d.getNome());
-    }
-
-    private NovoJogo() {
-        initComponents();
+       
     }
 
     /**
@@ -274,9 +265,7 @@ public class NovoJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-    MeusJogosEmpresa tela = new MeusJogosEmpresa(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+  
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
@@ -284,38 +273,15 @@ public class NovoJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoJogoActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-    MeuPerfilEmpresa tela = new MeuPerfilEmpresa(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+  
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void btnConcluidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluidoActionPerformed
-    
-    try{
-    String nome = txtNomeJogo.getText();
-    String desenvolvedora = txtNome.getText();
-    String descricao = txtDescricao.getText();
-    String categoria = txtCategoria.getText();
-    String data = txtData.getText();
-    int fxEtaria = Integer.parseInt(txtFaixaEtaria.getText());
-    double valor = Double.parseDouble(txtValor.getText());
-    
-    Jogos novoJogo = new Jogos(
-    nome, descricao, categoria, data, desenvolvedora, fxEtaria, valor, "Ativo", 0, 0, BancoTemporario.getJogos().size()+1);
-    
-    BancoTemporario.getJogos().add(novoJogo);
-
-        JOptionPane.showMessageDialog(this, "Jogo cadastrado com sucesso!");
-       
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Erro ao cadastrar jogo: " + e.getMessage());
-    }
+   
     }//GEN-LAST:event_btnConcluidoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

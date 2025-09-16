@@ -1,6 +1,7 @@
 package controlgames.controlgamesbd.view;
 
 
+import controlgames.controlgamesbd.dao.Usuarios;
 import javax.swing.JOptionPane;
 
   
@@ -12,50 +13,45 @@ import javax.swing.JOptionPane;
  * @author Gabrielle
  */
 public class Loja extends javax.swing.JFrame {
-    private static Usuarios u;
-    private static BancoTemporario banco ;
+    private Usuarios u;
+
     private int indexAtual = 0;
 
-        public   Loja(Usuarios u, BancoTemporario banco) {
+        public   Loja(Usuarios u) {
         initComponents();
         btnLoja.setEnabled(false);
         this.u = u;
-        this.banco = banco;
-        preencherCampos();
+      
+      //  preencherCampos();
     }
 
-        private void preencherCampos(){
-        Jogos jogo = banco.getJogos().get(indexAtual);
+       // private void preencherCampos(){
+       
         
-        txtNome.setText(u.getNome());
-        txtNomeJogo.setText(jogo.getNome());
-        txtValor.setText(String.format("%.2f", jogo.getValor()));
-        txtDescricaoo.setText(jogo.getDescricao());
-        txtCategoria.setText(jogo.getCategoria());
-        txtFaixaEtaria.setText(String.valueOf(jogo.getFaixaEtaria()));
-        txtData.setText(jogo.getDataLancamento());
-        }
+        //txtNome.setText(u.getNome());
+       // txtNomeJogo.setText(jogo.getNome());
+      //  txtValor.setText(String.format("%.2f", jogo.getValor()));
+      //  txtDescricaoo.setText(jogo.getDescricao());
+       // txtCategoria.setText(jogo.getCategoria());
+       // txtFaixaEtaria.setText(String.valueOf(jogo.getFaixaEtaria()));
+      //  txtData.setText(jogo.getDataLancamento());
+        
 
 
     
     
-    private void atualizarCampos() {
-    Jogos jogo = banco.getJogos().get(indexAtual); 
+  //  private void atualizarCampos() {
+   // Jogos jogo = banco.getJogos().get(indexAtual); 
     
-    txtNomeJogo.setText(jogo.getNome());
-    txtValor.setText(String.valueOf(jogo.getValor()));
-    txtDescricaoo.setText(jogo.getDescricao());
-    txtCategoria.setText(jogo.getCategoria());
-    txtFaixaEtaria.setText(String.valueOf(jogo.getFaixaEtaria()));
-    txtDescricao.setText(jogo.getDescricao());
-    }
+   // txtNomeJogo.setText(jogo.getNome());
+   // txtValor.setText(String.valueOf(jogo.getValor()));
+   //txtDescricaoo.setText(jogo.getDescricao());
+   // txtCategoria.setText(jogo.getCategoria());
+   // txtFaixaEtaria.setText(String.valueOf(jogo.getFaixaEtaria()));
+   // txtDescricao.setText(jogo.getDescricao());
+  //  }
     
-    private boolean verificarRestricaoIdade(Jogos jogo){
-    if (u.getIdade() < jogo.getFaixaEtaria()) {
-    return false;
-    }
-    return true;  
-    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -378,9 +374,7 @@ public class Loja extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-    MeusJogosUsuario tela = new MeusJogosUsuario(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+  
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
@@ -388,16 +382,14 @@ public class Loja extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLojaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-    MeuPerfilUsuario tela = new MeuPerfilUsuario(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+    
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    if(indexAtual < banco.getJogos().size() - 1) {
-        indexAtual++;
-        atualizarCampos();
-    }   
+   // if(indexAtual < banco.getJogos().size() - 1) {
+       // indexAtual++;
+      //  atualizarCampos();
+  //  }   
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtNomeJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeJogoActionPerformed
@@ -413,10 +405,10 @@ public class Loja extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCategoriaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    if(indexAtual > 0) {
-        indexAtual--;
-        atualizarCampos();
-    }   
+  //  if(indexAtual > 0) {
+     //   indexAtual--;
+      // atualizarCampos();
+  //  }   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
@@ -432,9 +424,7 @@ public class Loja extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+   
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -442,33 +432,21 @@ public class Loja extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-    int resposta = JOptionPane.showConfirmDialog(this, "Deseja comprar o jogo?", "Confirmação", JOptionPane.YES_NO_OPTION);
-    if (resposta == JOptionPane.YES_OPTION) {
-        Jogos jogo = banco.getJogos().get(indexAtual);
-
-        if (verificarRestricaoIdade(jogo)) { 
-            u.getJogosComprados().add(jogo); 
-            jogo.registrarVenda();
-            JOptionPane.showMessageDialog(this, "Jogo comprado com sucesso!");
-        } else {
-            JOptionPane.showMessageDialog(this, "Você não tem idade permitida para este jogo!");
-        }
-    }
+       
     }//GEN-LAST:event_btnComprarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-               Usuarios u = new Usuarios();
-    BancoTemporario banco = new BancoTemporario(); 
-                new Loja(u, banco).setVisible(true);
-            }
-        });
-    }
+    public static void main(String args[]) {
+    Usuarios u = new Usuarios();
+
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new Loja(u).setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprar;
@@ -495,5 +473,5 @@ public class Loja extends javax.swing.JFrame {
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 
-}
 
+}

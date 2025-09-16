@@ -1,5 +1,7 @@
 package controlgames.controlgamesbd.view;
 
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,43 +12,16 @@ package controlgames.controlgamesbd.view;
  * @author Gabrielle
  */
 public class MeuPerfilEmpresa extends javax.swing.JFrame {
-    private Desenvolvedores d;
-     private static Usuarios u;
-    private static BancoTemporario banco ;
+   
+   
     /**
      * Creates new form MeuPerfilEmpresa
      */
-    public MeuPerfilEmpresa(Desenvolvedores d, BancoTemporario banco1) {
-        initComponents();
-        btnPerfil.setEnabled(false);
-        this.d = d;
-        this.u = u;
-        this.banco = banco;
-        
-        txtNome.setText(d.getNome());
-        txtEmail.setText(d.getEmail());
-        txtSenha.setText(d.getSenha());
-        txtNomeEmpresa.setText(d.getNome());
-        txtQntdeJogos.setText(String.valueOf(d.getQntdeJogos()));
-        
-        int totalTodosJogos = 0;
-        for (Jogos j : banco.getJogos()) {
-            totalTodosJogos += j.getTotalVendas(banco.getUsuarios());
-        }
-        txtTotalVendido.setText(String.valueOf(totalTodosJogos));
-        
-        double lucroTotalTodosJogos = 0.0;
-        for (Jogos j : banco.getJogos()) {
-            int totalVendas = j.getTotalVendas(banco.getUsuarios()); 
-            lucroTotalTodosJogos += totalVendas * j.getValor();     
-        }
-        txtLucro.setText(String.format("%.2f", lucroTotalTodosJogos));
-    }
-    
-    
     public MeuPerfilEmpresa() {
         initComponents();
+       
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -291,15 +266,11 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-    MeusJogosEmpresa tela = new MeusJogosEmpresa(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-    NovoJogo tela = new NovoJogo(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnLojaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
@@ -307,9 +278,7 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -319,37 +288,14 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MeuPerfilEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MeuPerfilEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MeuPerfilEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MeuPerfilEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+     public static void main(String args[]) {
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MeuPerfilEmpresa().setVisible(true);
-            }
-        });
-    }
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new MeuPerfilEmpresa().setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoja;

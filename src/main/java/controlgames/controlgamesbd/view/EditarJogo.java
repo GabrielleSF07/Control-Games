@@ -1,6 +1,8 @@
 package controlgames.controlgamesbd.view;
 
 
+import controlgames.controlgamesbd.dao.Desenvolvedores;
+import controlgames.controlgamesbd.dao.Jogos;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -17,7 +19,6 @@ public class EditarJogo extends javax.swing.JFrame {
     
     private static Jogos jogo;
     private static Desenvolvedores d;
-    private static BancoTemporario banco;
     private int indexAtual;
     /**
      * Creates new form EditarJogo
@@ -25,9 +26,7 @@ public class EditarJogo extends javax.swing.JFrame {
     public EditarJogo(int index) {
         initComponents();
         this.d = d;
-        this.banco = banco;
         this.indexAtual = index;
-        this.jogo = BancoTemporario.getJogos().get(indexAtual);
         
         
   
@@ -273,27 +272,19 @@ public class EditarJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-    MeusJogosEmpresa tela = new MeusJogosEmpresa(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-    NovoJogo tela = new NovoJogo(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnLojaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-    MeuPerfilEmpresa tela = new MeuPerfilEmpresa();
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    MeusJogosEmpresa tela = new MeusJogosEmpresa(d, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -304,7 +295,7 @@ public class EditarJogo extends javax.swing.JFrame {
         jogo.setFaixaEtaria(Integer.parseInt(txtFaixaEtaria.getText()));
         jogo.setValor(Double.parseDouble(txtValor.getText()));
 
-       BancoTemporario.getJogos().set(indexAtual, jogo);
+      
 
        txtNome.setText(jogo.getNome());
        txtDescricao.setText(jogo.getDescricao());

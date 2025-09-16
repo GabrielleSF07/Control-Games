@@ -1,6 +1,11 @@
 package controlgames.controlgamesbd.dao;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.time.LocalDate;
 import java.util.List;
 
 /*
@@ -8,29 +13,17 @@ import java.util.List;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-/**
- *
- * @author Gabrielle
- */
+@Entity
 public class Jogos {
     
-    private String nome, descricao, categoria, dataLancamento, desenvolvedora, status;
-    private int faixaEtaria, qntdeVendas, id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    private String nome, descricao, categoria, desenvolvedora, status;
+    private int faixaEtaria, qntdeVendas;
     private double valor, lucro;
-
-    public Jogos(String nome, String descricao, String categoria, String dataLancamento, String desenvolvedora, int faixaEtaria, double valor, String status, int qntdeVendas, double lucro, int id) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.categoria = categoria;
-        this.dataLancamento = dataLancamento;
-        this.desenvolvedora = desenvolvedora;
-        this.faixaEtaria = faixaEtaria;
-        this.valor = valor;
-        this.status = status;
-        this.qntdeVendas = qntdeVendas;
-        this.lucro = lucro;
-        this.id = id;
-    }
+    private LocalDate dataLancamento;
 
     public String getNome() {
         return nome;
@@ -56,11 +49,11 @@ public class Jogos {
         this.categoria = categoria;
     }
 
-    public String getDataLancamento() {
+    public LocalDate getDataLancamento() {
         return dataLancamento;
     }
 
-    public void setDataLancamento(String dataLancamento) {
+    public void setDataLancamento(LocalDate dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 
@@ -130,16 +123,16 @@ public class Jogos {
         this.lucro = lucro;
     }
     
-    public int getTotalVendas(List<Usuarios> listaUsuarios) {
-    int total = 0;
-    for (Usuarios u : listaUsuarios) {
-        for (Jogos j : u.getJogosComprados()) {
-            if (j.equals(this)) {
-                total++;
+   // public int getTotalVendas(List<Usuarios> listaUsuarios) {
+   // int total = 0;
+   // for (Usuarios u : listaUsuarios) {
+   //     for (Jogos j : u.getJogosComprados()) {
+   //         if (j.equals(this)) {
+   //             total++;
             }
-        }
-    }
-    return total;
-    }
+   //     }
+   // }
+   // return total;
+   // }
     
-}
+

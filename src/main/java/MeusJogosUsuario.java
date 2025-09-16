@@ -1,4 +1,4 @@
-package controlgames.controlgamesbd.view;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -10,31 +10,14 @@ package controlgames.controlgamesbd.view;
  * @author Gabrielle
  */
 public class MeusJogosUsuario extends javax.swing.JFrame {
-    private static Usuarios u;
-    private static BancoTemporario banco;
+   
     
     /**
      * Creates new form MeusJogosUsuario
      */
-    public MeusJogosUsuario(Usuarios u, BancoTemporario banco) {
+    public MeusJogosUsuario() {
         initComponents();
-        btnMeusJogos.setEnabled(false);
-        this.u = u;
-        this.banco = banco;
-        txtNome.setText(u.getNome());
-        
-        if (!u.getJogosComprados().isEmpty()) {
-        mostrarJogo(0);
-    }
-    }
-    private int indiceJogo = 0;
-
-    private void mostrarJogo(int index) {
-    if (index >= 0 && index < u.getJogosComprados().size()) {
-        Jogos jogo = u.getJogosComprados().get(index);
-        txtNomeJogo.setText(jogo.getNome());
-        txtDescricao.setText(jogo.getDescricao());
-        txtDesenvolvedor.setText(jogo.getDesenvolvedora());
+       
         
     }
 }
@@ -293,29 +276,25 @@ public class MeusJogosUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-    Loja tela = new Loja(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+   
     }//GEN-LAST:event_btnLojaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-    MeuPerfilUsuario tela = new MeuPerfilUsuario(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     if (indiceJogo > 0) {
-        indiceJogo--;
-        mostrarJogo(indiceJogo);
-    }
+    // if (indiceJogo > 0) {
+    //    indiceJogo--;
+       // mostrarJogo(indiceJogo);
+   // }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    if (indiceJogo < u.getJogosComprados().size() - 1) {
-        indiceJogo++;
-        mostrarJogo(indiceJogo);
-    } 
+    //if (indiceJogo < u.getJogosComprados().size() - 1) {
+    //    indiceJogo++;
+       // mostrarJogo(indiceJogo);
+   // } 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtNomeJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeJogoActionPerformed
@@ -327,9 +306,7 @@ public class MeusJogosUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDesenvolvedorActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    CadastroCliente tela = new CadastroCliente(u, banco);
-    tela.setVisible(true);
-    this.dispose();
+   
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -362,7 +339,7 @@ public class MeusJogosUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MeusJogosUsuario(u, banco).setVisible(true);
+                new MeusJogosUsuario().setVisible(true);
             }
         });
     }
