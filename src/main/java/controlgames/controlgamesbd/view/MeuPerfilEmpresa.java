@@ -1,5 +1,7 @@
 package controlgames.controlgamesbd.view;
 
+import controlgames.controlgamesbd.dao.Desenvolvedores;
+
 
 
 /*
@@ -12,13 +14,11 @@ package controlgames.controlgamesbd.view;
  * @author Gabrielle
  */
 public class MeuPerfilEmpresa extends javax.swing.JFrame {
-   
-   
-    /**
-     * Creates new form MeuPerfilEmpresa
-     */
-    public MeuPerfilEmpresa() {
+    private static Desenvolvedores d;
+    
+    public MeuPerfilEmpresa(Desenvolvedores d) {
         initComponents();
+        this.d = d;
        
     }
   
@@ -292,7 +292,7 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
 
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new MeuPerfilEmpresa().setVisible(true);
+            new MeuPerfilEmpresa(d).setVisible(true);
         }
     });
 }

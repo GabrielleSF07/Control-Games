@@ -69,7 +69,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnDesenvolvedor" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCadastroDesenvolvedor" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnLoginDesenvolvedor" min="-2" max="-2" attributes="0"/>
               </Group>
               <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -80,7 +82,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCadastro" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnLogin" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="btnDesenvolvedor" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnCadastroDesenvolvedor" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnLoginDesenvolvedor" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel2" max="32767" attributes="0"/>
@@ -206,15 +209,26 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnDesenvolvedor">
+        <Component class="javax.swing.JButton" name="btnCadastroDesenvolvedor">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Sou desenvolvedor"/>
+            <Property name="text" type="java.lang.String" value="Cadastro Desenvolvedor"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDesenvolvedorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroDesenvolvedorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLoginDesenvolvedor">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Login Desenvolvedor"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginDesenvolvedorActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

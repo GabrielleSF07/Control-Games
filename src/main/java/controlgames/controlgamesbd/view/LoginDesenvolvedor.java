@@ -1,6 +1,8 @@
 package controlgames.controlgamesbd.view;
 
 
+import controlgames.controlgamesbd.dao.Desenvolvedores;
+import controlgames.controlgamesbd.dao.DesenvolvedoresDAO;
 import javax.swing.JOptionPane;
 
 /*
@@ -12,14 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author Gabrielle
  */
-public class SouDesenvolvedor extends javax.swing.JFrame {
+public class LoginDesenvolvedor extends javax.swing.JFrame {
  
     /**
      * Creates new form SouDesenvolvedor
      */
-    public SouDesenvolvedor() {
+    public LoginDesenvolvedor() {
         initComponents();
-        btnDesenvolvedor.setEnabled(false);
+        btnLoginDesenvolvedor.setEnabled(false);
         
     }
 
@@ -34,16 +36,15 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtNomeEmpresa = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JTextField();
         btnCadastro = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
-        btnDesenvolvedor = new javax.swing.JButton();
+        btnCadastroDesenvolvedor = new javax.swing.JButton();
+        btnLoginDesenvolvedor = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -53,17 +54,8 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel6.setText("Nome da empresa:");
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel7.setText("Email:");
-
-        txtNomeEmpresa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeEmpresaActionPerformed(evt);
-            }
-        });
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,39 +89,30 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
                 .addComponent(btnEntrar)
                 .addGap(68, 68, 68))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(53, 53, 53)
                 .addComponent(btnEntrar)
                 .addContainerGap(67, Short.MAX_VALUE))
         );
@@ -150,11 +133,19 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
             }
         });
 
-        btnDesenvolvedor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnDesenvolvedor.setText("Sou desenvolvedor");
-        btnDesenvolvedor.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastroDesenvolvedor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCadastroDesenvolvedor.setText("Cadastro Desenvolvedor");
+        btnCadastroDesenvolvedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDesenvolvedorActionPerformed(evt);
+                btnCadastroDesenvolvedorActionPerformed(evt);
+            }
+        });
+
+        btnLoginDesenvolvedor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnLoginDesenvolvedor.setText("Login Desenvolvedor");
+        btnLoginDesenvolvedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginDesenvolvedorActionPerformed(evt);
             }
         });
 
@@ -167,8 +158,10 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDesenvolvedor)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addComponent(btnCadastroDesenvolvedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLoginDesenvolvedor)
+                .addContainerGap(10, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -177,7 +170,8 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDesenvolvedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastroDesenvolvedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLoginDesenvolvedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -195,14 +189,18 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel3))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel3))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,33 +217,60 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeEmpresaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeEmpresaActionPerformed
-
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-
+    CadastrarCliente tela = new CadastrarCliente();
+    tela.setVisible(true);
+    this.dispose();  
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-
+    LoginCliente tela = new LoginCliente();
+    tela.setVisible(true);
+    this.dispose();  
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void btnDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesenvolvedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDesenvolvedorActionPerformed
+    private void btnCadastroDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroDesenvolvedorActionPerformed
+    CadastroDesenvolvedor tela = new CadastroDesenvolvedor();
+    tela.setVisible(true);
+    this.dispose();        
+    }//GEN-LAST:event_btnCadastroDesenvolvedorActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-   
+    String email = txtEmail.getText();
+    String senha = txtSenha.getText();
+    
+    if(!email.isEmpty() && !senha.isEmpty()){
+    try{
+    DesenvolvedoresDAO dao = new DesenvolvedoresDAO();
+    Desenvolvedores d = dao.buscarDesenvolvedores(email);
+    if(d != null){
+       dao.loginDesenvolvedores(email, senha);
+       JOptionPane.showMessageDialog(rootPane, "Seja bem-vindo novamente, " + d.getNome());
+       
+       MeuPerfilEmpresa tela = new MeuPerfilEmpresa(d);
+       tela.setVisible(true);
+       this.dispose();
+       
+    } else {
+        JOptionPane.showMessageDialog(rootPane, "Empresa não encontrada, verifique se os dados estão corretos");
+    }
+    } catch (Exception e){
+             JOptionPane.showMessageDialog(rootPane, "Erro: " + e.getMessage());
+            }
+    }   
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnLoginDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginDesenvolvedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginDesenvolvedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,38 +289,37 @@ public class SouDesenvolvedor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SouDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SouDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SouDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SouDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDesenvolvedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SouDesenvolvedor().setVisible(true);
+                new LoginDesenvolvedor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastro;
-    private javax.swing.JButton btnDesenvolvedor;
+    private javax.swing.JButton btnCadastroDesenvolvedor;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLoginDesenvolvedor;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNomeEmpresa;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

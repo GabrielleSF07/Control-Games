@@ -13,15 +13,14 @@ import javax.swing.JOptionPane;
 import static org.hibernate.query.results.internal.Builders.entity;
 
 public class UsuariosDAO {
-    
     private ControlGamesConnector conexao;
     private Statement stm;
     private Connection conn;
     private ResultSet rs;
+    EntityManager em = ControlGamesConnector.getEntityManager();
     
     public void insereUsuario(Usuarios u){
       try{
-          EntityManager em = ControlGamesConnector.getEntityManager();
           em.getTransaction().begin();
           em.persist(u);
           em.getTransaction().commit();
@@ -30,6 +29,28 @@ public class UsuariosDAO {
           JOptionPane.showMessageDialog(null, e.getMessage());
       }
     }
-}
     
+    public Usuarios buscarUsuario (String email){
+    try {
+        return em.createQuery(
+            "SELECT u FROM Usuarios u WHERE u.email = :email", Usuarios.class)
+            .setParameter("email", email)
+            .getSingleResult();
+    } catch (Exception e) {
+        return null;
+    }
+    }
+    
+    public Usuarios loginUsuario (String email, String senha){
+    try {
+        return em.createQuery(
+            "SELECT u FROM Usuarios u WHERE u.email = :email AND u.senha = :senha", Usuarios.class)
+            .setParameter("email", email)
+            .setParameter("senha", senha)
+            .getSingleResult();
+    } catch (Exception e) {
+        return null;
+    }
+        }
+}
    

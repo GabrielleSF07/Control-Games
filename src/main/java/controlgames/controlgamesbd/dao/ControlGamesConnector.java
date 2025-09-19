@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package controlgames.controlgamesbd.dao;
 
  import jakarta.persistence.EntityManager;
@@ -31,3 +27,4 @@ package controlgames.controlgamesbd.dao;
         }
     }
   }
+
