@@ -1,5 +1,10 @@
 package controlgames.controlgamesbd.dao;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -11,17 +16,18 @@ package controlgames.controlgamesbd.dao;
  */
 public class Desenvolvedores {
    
-    private String nome, email, senha;
-    private int qntdeJogos, totalVendido, lucroTotal;
-
-    public Desenvolvedores(String nome, String email, String senha, int qntdeJogos, int totalVendido, int lucroTotal) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.qntdeJogos = qntdeJogos;
-        this.totalVendido = totalVendido;
-        this.lucroTotal = lucroTotal;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column
+    private String nome;
+    
+    @Column
+    private String email;
+    
+    @Column
+    private String senha;
 
     public String getNome() {
         return nome;
@@ -45,34 +51,15 @@ public class Desenvolvedores {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    } 
+
+    public int getId() {
+        return id;
     }
 
-    public int getQntdeJogos() {
-        return qntdeJogos;
+    public void setId(int id) {
+        this.id = id;
     }
-
-    public void setQntdeJogos(int qntdeJogos) {
-        this.qntdeJogos = qntdeJogos;
-    }
-
-    public int getTotalVendido() {
-        return totalVendido;
-    }
-
-    public void setTotalVendido(int totalVendido) {
-        this.totalVendido = totalVendido;
-    }
-
-    public int getLucroTotal() {
-        return lucroTotal;
-    }
-
-    public void setLucroTotal(int lucroTotal) {
-        this.lucroTotal = lucroTotal;
-    }
-    
-  
-    
     
     
 }

@@ -5,6 +5,7 @@
 package controlgames.controlgamesbd.view;
 
 import controlgames.controlgamesbd.dao.Usuarios;
+import controlgames.controlgamesbd.dao.UsuariosDAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -262,15 +263,28 @@ public class CadastrarCliente extends javax.swing.JFrame {
         if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || idadeStr.isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos corretamente");
             return;
-        }
-
-        int idade;
+        } else {
+             int idade;
         try {
             idade = Integer.parseInt(idadeStr);
+            
+            UsuariosDAO dao = new UsuariosDAO();
+            Usuarios u = new Usuarios();
+            
+            u.setEmail(email);
+            u.setIdade(idade);
+            u.setNome(nome);
+            u.setSenha(senha);
+            
+            dao.insereUsuario(u);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "Digite um número válido para idade");
+            JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar usúario: " + e.getMessage());
             return;
         }
+           
+        }
+
+       
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

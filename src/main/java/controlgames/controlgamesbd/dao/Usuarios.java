@@ -1,6 +1,7 @@
 
 package controlgames.controlgamesbd.dao;
 
+import jakarta.persistence.Column;
 import java.util.ArrayList;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,9 +15,18 @@ public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
+    private String nome;
     
-    private String nome, email, senha;
-    private int idade, qntdeJogos;
+    @Column
+    private String email; 
+    
+    @Column
+    private String senha;
+    
+    @Column
+    private int idade; 
    
 
     public String getNome() {
@@ -51,13 +61,7 @@ public class Usuarios {
         this.idade = idade;
     }
     
-    public int getQntdeJogos() {
-        return qntdeJogos;
-    }
-
-    public void setQntdeJogos(int qntdeJogos) {
-        this.qntdeJogos = qntdeJogos;
-    }
+   
     
    
     

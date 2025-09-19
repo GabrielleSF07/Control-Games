@@ -1,6 +1,7 @@
 package controlgames.controlgamesbd.dao;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,10 +9,6 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 import java.util.List;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 @Entity
 public class Jogos {
@@ -19,10 +16,29 @@ public class Jogos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
+    private String nome;
     
-    private String nome, descricao, categoria, desenvolvedora, status;
-    private int faixaEtaria, qntdeVendas;
-    private double valor, lucro;
+    @Column
+    private String descricao;
+    
+    @Column
+    private String categoria;
+    
+    @Column
+    private String desenvolvedora;
+    
+    @Column
+    private String status;
+    
+    @Column
+    private int faixaEtaria;
+  
+    @Column
+    private double valor;
+    
+    @Column
     private LocalDate dataLancamento;
 
     public String getNome() {
@@ -89,20 +105,6 @@ public class Jogos {
         this.status = status;
     }
 
-     public int registrarVenda() {
-        qntdeVendas++;
-        lucro += valor;
-        return qntdeVendas;
-    }
-
-    public int getVendas() {
-        return qntdeVendas;
-    }
-
-    public double getLucro() {
-        return lucro;
-    }
-
     public int getId() {
         return id;
     }
@@ -111,28 +113,4 @@ public class Jogos {
         this.id = id;
     }
     
-    public int getTotalVendas() {
-    return this.qntdeVendas; 
 }
-
-    public void setQntdeVendas(int qntdeVendas) {
-        this.qntdeVendas = qntdeVendas;
-    }
-
-    public void setLucro(double lucro) {
-        this.lucro = lucro;
-    }
-    
-   // public int getTotalVendas(List<Usuarios> listaUsuarios) {
-   // int total = 0;
-   // for (Usuarios u : listaUsuarios) {
-   //     for (Jogos j : u.getJogosComprados()) {
-   //         if (j.equals(this)) {
-   //             total++;
-            }
-   //     }
-   // }
-   // return total;
-   // }
-    
-
