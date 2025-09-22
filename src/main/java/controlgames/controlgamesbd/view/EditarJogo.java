@@ -289,7 +289,7 @@ public class EditarJogo extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         jogo.setNome(txtNomeJogo.getText());
-        jogo.setDesenvolvedora(txtNome.getText());
+       // jogo.setDesenvolvedores(txtNome.getText());
         jogo.setDescricao(txtDescricao.getText());
         jogo.setCategoria(txtCategoria.getText());
         jogo.setFaixaEtaria(Integer.parseInt(txtFaixaEtaria.getText()));

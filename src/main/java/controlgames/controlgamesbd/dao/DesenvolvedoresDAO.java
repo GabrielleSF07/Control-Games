@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -15,6 +16,7 @@ public class DesenvolvedoresDAO {
     private Connection conn;
     private ResultSet rs;
     EntityManager em = ControlGamesConnector.getEntityManager();
+    
     
     public void insereDesenvolvedor(Desenvolvedores d){
       try{
@@ -49,4 +51,20 @@ public class DesenvolvedoresDAO {
         return null;
     }
         } 
-}
+    
+    public Object[] listarDados(String email) {
+        try {
+            String jpql = "SELECT d.nome, d.email, d.senha, COUNT(j), SUM(j.quantidadeVendida), SUM(j.valor * j.quantidadeVendida) " +
+                          "FROM Desenvolvedores d LEFT JOIN d.jogos j " +
+                          "WHERE d.email = :email " +
+                          "GROUP BY d.id, d.nome, d.email, d.senha";
+
+            return em.createQuery(jpql, Object[].class)
+                     .setParameter("email", email)
+                     .getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    }

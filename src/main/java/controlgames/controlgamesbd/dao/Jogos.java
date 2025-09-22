@@ -1,116 +1,73 @@
 package controlgames.controlgamesbd.dao;
 
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
-
 
 @Entity
+@Table(name = "jogos")
 public class Jogos {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
     private String nome;
-    
+
     @Column
     private String descricao;
-    
+
     @Column
     private String categoria;
-    
-    @Column
-    private String desenvolvedora;
-    
+
     @Column
     private String status;
-    
-    @Column
+
+    @Column(name = "faixa_etaria")
     private int faixaEtaria;
-  
+
     @Column
     private double valor;
-    
-    @Column
+
+    @Column(name = "data_lancamento")
     private LocalDate dataLancamento;
 
-    public String getNome() {
-        return nome;
-    }
+    // Correção: associação ManyToOne com Desenvolvedores
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "desenvolvedora_id", nullable = false)
+    private Desenvolvedores desenvolvedora;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    @Column(name = "quantidade_vendida")
+    private int qntdeVendida;
 
-    public String getDescricao() {
-        return descricao;
-    }
+    // Getters e Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public String getCategoria() {
-        return categoria;
-    }
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+    public String getCategoria() { return categoria; }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
 
-    public LocalDate getDataLancamento() {
-        return dataLancamento;
-    }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
-    public void setDataLancamento(LocalDate dataLancamento) {
-        this.dataLancamento = dataLancamento;
-    }
+    public int getFaixaEtaria() { return faixaEtaria; }
+    public void setFaixaEtaria(int faixaEtaria) { this.faixaEtaria = faixaEtaria; }
 
-    public int getFaixaEtaria() {
-        return faixaEtaria;
-    }
+    public double getValor() { return valor; }
+    public void setValor(double valor) { this.valor = valor; }
 
-    public void setFaixaEtaria(int faixaEtaria) {
-        this.faixaEtaria = faixaEtaria;
-    }
+    public LocalDate getDataLancamento() { return dataLancamento; }
+    public void setDataLancamento(LocalDate dataLancamento) { this.dataLancamento = dataLancamento; }
 
-    public double getValor() {
-        return valor;
-    }
+    public Desenvolvedores getDesenvolvedora() { return desenvolvedora; }
+    public void setDesenvolvedora(Desenvolvedores desenvolvedora) { this.desenvolvedora = desenvolvedora; }
 
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    public String getDesenvolvedora() {
-        return desenvolvedora;
-    }
-
-    public void setDesenvolvedora(String desenvolvedora) {
-        this.desenvolvedora = desenvolvedora;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
+    public int getQntdeVendida() { return qntdeVendida; }
+    public void setQntdeVendida(int qntdeVendida) { this.qntdeVendida = qntdeVendida; }
 }
