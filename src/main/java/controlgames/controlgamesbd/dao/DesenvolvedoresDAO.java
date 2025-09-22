@@ -58,7 +58,6 @@ public class DesenvolvedoresDAO {
                           "FROM Desenvolvedores d LEFT JOIN d.jogos j " +
                           "WHERE d.email = :email " +
                           "GROUP BY d.id, d.nome, d.email, d.senha";
-
             return em.createQuery(jpql, Object[].class)
                      .setParameter("email", email)
                      .getSingleResult();

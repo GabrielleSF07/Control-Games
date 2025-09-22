@@ -1,6 +1,7 @@
 package controlgames.controlgamesbd.dao;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -32,14 +33,13 @@ public class Jogos {
     @Column(name = "data_lancamento")
     private LocalDate dataLancamento;
 
-    // Correção: associação ManyToOne com Desenvolvedores
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "desenvolvedora_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "desenvolvedora_id")
     private Desenvolvedores desenvolvedora;
-
-    @Column(name = "quantidade_vendida")
-    private int qntdeVendida;
-
+    
+    @Column
+    private int quantidadeVendida;
+    
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -68,6 +68,6 @@ public class Jogos {
     public Desenvolvedores getDesenvolvedora() { return desenvolvedora; }
     public void setDesenvolvedora(Desenvolvedores desenvolvedora) { this.desenvolvedora = desenvolvedora; }
 
-    public int getQntdeVendida() { return qntdeVendida; }
-    public void setQntdeVendida(int qntdeVendida) { this.qntdeVendida = qntdeVendida; }
+    public int getQntdeVendida() { return quantidadeVendida; }
+    public void setQntdeVendida(int qntdeVendida) { this.quantidadeVendida = qntdeVendida; }
 }

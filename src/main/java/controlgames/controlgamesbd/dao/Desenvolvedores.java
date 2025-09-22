@@ -27,6 +27,17 @@ public class Desenvolvedores {
     
     @Column
     private String senha;
+    
+    @OneToMany(mappedBy = "desenvolvedora", fetch = FetchType.LAZY)
+    private List<Jogos> jogos;
+
+    public List<Jogos> getJogos() {
+        return jogos;
+    }
+
+    public void setJogos(List<Jogos> jogos) {
+        this.jogos = jogos;
+    }
 
     public String getNome() {
         return nome;

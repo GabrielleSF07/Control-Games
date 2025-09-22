@@ -22,6 +22,7 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
         
 
         if (dados != null) {
+            txtNome.setText(d.getNome());
             txtNomeEmpresa.setText(dados[0].toString());
             txtEmail.setText(dados[1].toString());
             txtSenha.setText(dados[2].toString());
