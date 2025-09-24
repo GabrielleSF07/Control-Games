@@ -1,6 +1,4 @@
 package controlgames.controlgamesbd.view;
-
-
 import controlgames.controlgamesbd.dao.Usuarios;
 import javax.swing.JOptionPane;
 
@@ -17,7 +15,7 @@ public class Loja extends javax.swing.JFrame {
 
     private int indexAtual = 0;
 
-        public   Loja(Usuarios u) {
+        public Loja() {
         initComponents();
         btnLoja.setEnabled(false);
         this.u = u;
@@ -443,7 +441,7 @@ public class Loja extends javax.swing.JFrame {
 
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new Loja(u).setVisible(true);
+            new Loja().setVisible(true);
         }
     });
 }

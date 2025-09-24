@@ -1,13 +1,16 @@
 package controlgames.controlgamesbd.dao;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import java.util.ArrayList;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -19,16 +22,19 @@ public class Usuarios {
 
     @Column
     private String nome;
-    
+
     @Column
     private String email; 
-    
+
     @Column
     private String senha;
-    
+
     @Column
     private int idade; 
-   
+    
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Compras> compras = new ArrayList<>();
+
 
     public String getNome() {
         return nome;
@@ -61,10 +67,22 @@ public class Usuarios {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    
-   
-    
-   
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Compras> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compras> compras) {
+        this.compras = compras;
+    }
+
     
 }

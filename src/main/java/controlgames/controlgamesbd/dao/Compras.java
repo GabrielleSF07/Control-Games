@@ -4,17 +4,17 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "compras")
-public class Compra {
+@Table
+public class Compras {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Usuarios usuario;
-
+    
     @ManyToOne
     @JoinColumn(name = "jogo_id", nullable = false)
     private Jogos jogo;
@@ -24,6 +24,7 @@ public class Compra {
 
     @Column(nullable = false)
     private float valorTotal;
+
 
     public Long getId() {
         return id;

@@ -1,5 +1,4 @@
 package controlgames.controlgamesbd.view;
-
 import controlgames.controlgamesbd.dao.Desenvolvedores;
 import controlgames.controlgamesbd.dao.DesenvolvedoresDAO;
 import jakarta.persistence.EntityManager;
@@ -12,6 +11,7 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
     public MeuPerfilEmpresa(Desenvolvedores d) {
         initComponents();
         this.d = d;
+        btnPerfil.setEnabled(false);
         carregarPerfil();
     }
   
@@ -19,8 +19,7 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
         DesenvolvedoresDAO devDao = new DesenvolvedoresDAO();
         
         Object[] dados = devDao.listarDados(d.getEmail());
-        
-
+       
         if (dados != null) {
             txtNome.setText(d.getNome());
             txtNomeEmpresa.setText(dados[0].toString());
@@ -270,11 +269,15 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-
+    MeusJogosEmpresa tela = new MeusJogosEmpresa();
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-
+    NovoJogo tela = new NovoJogo();
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnLojaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
@@ -282,7 +285,9 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    CadastrarCliente tela = new CadastrarCliente();
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed

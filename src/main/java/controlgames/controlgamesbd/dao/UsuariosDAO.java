@@ -52,5 +52,21 @@ public class UsuariosDAO {
         return null;
     }
         }
+    
+   public Object[] listarDados(String email) {
+    try {
+        String jpql = "SELECT u.nome, u.email, u.senha, COUNT(c) " +
+                      "FROM Usuarios u LEFT JOIN u.compras c " +
+                      "WHERE u.email = :email " +
+                      "GROUP BY u.id, u.nome, u.email, u.senha";
+        
+        return em.createQuery(jpql, Object[].class)
+                 .setParameter("email", email)
+                 .getSingleResult();
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+}
 }
    

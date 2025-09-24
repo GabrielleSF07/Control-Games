@@ -1,6 +1,4 @@
 package controlgames.controlgamesbd.view;
-
-
 import controlgames.controlgamesbd.dao.Desenvolvedores;
 import controlgames.controlgamesbd.dao.Jogos;
 import java.util.List;

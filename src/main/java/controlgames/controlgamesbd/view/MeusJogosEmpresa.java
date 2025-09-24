@@ -1,4 +1,4 @@
-
+package controlgames.controlgamesbd.view;
 
 
 import java.util.List;
