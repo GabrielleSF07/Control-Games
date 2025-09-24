@@ -23,11 +23,8 @@ public class Jogos {
     @Column
     private String categoria;
 
-    @Column
-    private String status;
-
     @Column(name = "faixa_etaria")
-    private int faixaEtaria;
+    private String faixaEtaria;
 
     @Column
     private double valor;
@@ -77,19 +74,11 @@ public class Jogos {
         this.categoria = categoria;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public int getFaixaEtaria() {
+    public String getFaixaEtaria() {
         return faixaEtaria;
     }
 
-    public void setFaixaEtaria(int faixaEtaria) {
+    public void setFaixaEtaria(String faixaEtaria) {
         this.faixaEtaria = faixaEtaria;
     }
 

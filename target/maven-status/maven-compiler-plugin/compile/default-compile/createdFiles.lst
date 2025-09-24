@@ -49,6 +49,7 @@ controlgames\controlgamesbd\view\CadastrarCliente$5.class
 controlgames\controlgamesbd\view\MeusJogosUsuario$6.class
 controlgames\controlgamesbd\view\LoginCliente.class
 controlgames\controlgamesbd\view\MeusJogosEmpresa$4.class
+controlgames\controlgamesbd\dao\JogosDAO.class
 controlgames\controlgamesbd\view\NovoJogo$2.class
 controlgames\controlgamesbd\view\MeuPerfilEmpresa$4.class
 controlgames\controlgamesbd\view\LoginDesenvolvedor$3.class
@@ -100,7 +101,6 @@ controlgames\controlgamesbd\view\LoginCliente$7.class
 controlgames\controlgamesbd\view\CadastroDesenvolvedor$3.class
 controlgames\controlgamesbd\view\EditarJogo$4.class
 controlgames\controlgamesbd\view\Loja$13.class
-controlgames\controlgamesbd\view\MeusJogosEmpresa$15.class
 controlgames\controlgamesbd\view\CadastrarCliente$8.class
 controlgames\controlgamesbd\view\MeusJogosEmpresa$8.class
 controlgames\controlgamesbd\view\LoginDesenvolvedor$6.class

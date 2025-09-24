@@ -3,11 +3,9 @@ import controlgames.controlgamesbd.dao.Desenvolvedores;
 import controlgames.controlgamesbd.dao.DesenvolvedoresDAO;
 import jakarta.persistence.EntityManager;
 
-
 public class MeuPerfilEmpresa extends javax.swing.JFrame {
     private static Desenvolvedores d;
    
-    
     public MeuPerfilEmpresa(Desenvolvedores d) {
         initComponents();
         this.d = d;
@@ -269,13 +267,13 @@ public class MeuPerfilEmpresa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-    MeusJogosEmpresa tela = new MeusJogosEmpresa();
+    MeusJogosEmpresa tela = new MeusJogosEmpresa(d);
     tela.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-    NovoJogo tela = new NovoJogo();
+    NovoJogo tela = new NovoJogo(d);
     tela.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnLojaActionPerformed
