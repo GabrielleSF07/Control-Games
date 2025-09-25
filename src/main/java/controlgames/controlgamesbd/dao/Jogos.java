@@ -98,6 +98,14 @@ public class Jogos {
         this.dataLancamento = dataLancamento;
     }
 
+    public int getQuantidadeVendida() {
+        return quantidadeVendida;
+    }
+
+    public void setQuantidadeVendida(int quantidadeVendida) {
+        this.quantidadeVendida = quantidadeVendida;
+    }
+
     public Desenvolvedores getDesenvolvedora() {
         return desenvolvedora;
     }
@@ -106,12 +114,13 @@ public class Jogos {
         this.desenvolvedora = desenvolvedora;
     }
 
-    public int getQuantidadeVendida() {
-        return quantidadeVendida;
+    public List<Compras> getCompras() {
+        return compras;
     }
 
-    public void setQuantidadeVendida(int quantidadeVendida) {
-        this.quantidadeVendida = quantidadeVendida;
+    public void setCompras(List<Compras> compras) {
+        this.compras = compras;
     }
      
+    
 }

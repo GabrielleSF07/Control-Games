@@ -1,5 +1,4 @@
 package controlgames.controlgamesbd.view;
-
 import controlgames.controlgamesbd.dao.Usuarios;
 import controlgames.controlgamesbd.dao.UsuariosDAO;
 import javax.swing.JOptionPane;

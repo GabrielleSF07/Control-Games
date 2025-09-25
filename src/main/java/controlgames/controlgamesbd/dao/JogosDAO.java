@@ -14,11 +14,25 @@ public class JogosDAO {
     private ResultSet rs;
     EntityManager em = ControlGamesConnector.getEntityManager();
     
-public List<Jogos> listarJogos(Desenvolvedores d) {
+public List<Jogos> listarJogosDev(Desenvolvedores d) {
     try {
         return em.createQuery("SELECT j FROM Jogos j WHERE j.desenvolvedora = :dev", Jogos.class)
                  .setParameter("dev", d)
                  .getResultList();
+    } finally {
+        em.close();
+    }
+}
+
+public List<Jogos> listarJogosUser(Usuarios u) {
+    try {
+        return em.createQuery(
+            "SELECT j FROM Jogos j " +
+            "JOIN j.desenvolvedora d " +
+            "JOIN j.compras c " +
+            "WHERE c.usuario = :u", Jogos.class)
+            .setParameter("u", u)
+            .getResultList();
     } finally {
         em.close();
     }

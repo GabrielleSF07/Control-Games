@@ -19,7 +19,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
     
     private void CarregarJogos(){
         JogosDAO dao = new JogosDAO();
-        jogos = dao.listarJogos(d);
+        jogos = dao.listarJogosDev(d);
         
         if (!jogos.isEmpty()) {
         indexAtual = 0;

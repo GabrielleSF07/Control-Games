@@ -230,7 +230,7 @@ public class MeuPerfilUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-    MeusJogosUsuario tela = new MeusJogosUsuario();
+    MeusJogosUsuario tela = new MeusJogosUsuario(u);
     tela.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnMeusJogosActionPerformed
