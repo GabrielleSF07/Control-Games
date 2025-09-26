@@ -1,5 +1,9 @@
 package controlgames.controlgamesbd.view;
 import controlgames.controlgamesbd.dao.Desenvolvedores;
+import controlgames.controlgamesbd.dao.Jogos;
+import controlgames.controlgamesbd.dao.JogosDAO;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 public class NovoJogo extends javax.swing.JFrame {
@@ -10,6 +14,7 @@ public class NovoJogo extends javax.swing.JFrame {
         btnNovoJogo.setEnabled(false);
         this.d = d;
 
+        txtNome.setText(d.getNome());
     }
 
     @SuppressWarnings("unchecked")
@@ -246,7 +251,9 @@ public class NovoJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-  
+    MeusJogosEmpresa tela = new MeusJogosEmpresa(d);
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
@@ -254,15 +261,46 @@ public class NovoJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoJogoActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-  
+    MeuPerfilEmpresa tela = new MeuPerfilEmpresa(d);
+    tela.setVisible(true);
+    this.dispose();  
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void btnConcluidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluidoActionPerformed
-   
+    try{
+        String nome = txtNomeJogo.getText();
+        String descricao = txtDescricao.getText();
+        String categoria = txtCategoria.getText();
+        LocalDate data = LocalDate.parse(txtData.getText(),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        String faixa = txtFaixaEtaria.getText();
+        String valorTxt = txtValor.getText();
+       
+        if(!nome.isEmpty() && !descricao.isEmpty() && !categoria.isEmpty() && data != null && !faixa.isEmpty() && valorTxt != null){
+            
+         double valor = Double.parseDouble(valorTxt);    
+            
+        Jogos jogo = new Jogos();
+        jogo.setNome(nome);
+        jogo.setDescricao(descricao);
+        jogo.setCategoria(categoria);
+        jogo.setDataLancamento(data);
+        jogo.setFaixaEtaria(faixa);
+        jogo.setValor(valor);
+        jogo.setDesenvolvedora(d);
+        
+        JogosDAO dao = new JogosDAO();
+        dao.salvar(jogo); 
+        JOptionPane.showMessageDialog(this, "Jogo cadastrado com sucesso!");
+        }
+    }   catch(Exception e){
+        JOptionPane.showMessageDialog(this, "Erro ao cadastrar jogo: " + e.getMessage());
+    } 
     }//GEN-LAST:event_btnConcluidoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  
+    CadastrarCliente tela = new CadastrarCliente();
+    tela.setVisible(true);
+    this.dispose();  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

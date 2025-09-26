@@ -1,19 +1,19 @@
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\JogosDAO.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\Jogos.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\EditarJogo.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\MeusJogosEmpresa.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\LoginCliente.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\MeuPerfilEmpresa.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\CadastroDesenvolvedor.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\NovoJogo.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\Compras.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\DesenvolvedoresDAO.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\LoginDesenvolvedor.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\MeusJogosUsuario.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\Desenvolvedores.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\ControlGamesConnector.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\UsuariosDAO.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\Loja.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\MeuPerfilUsuario.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\dao\Usuarios.java
-C:\Users\leona\OneDrive\Documentos\NetBeansProjects\Control Games GABI\Control-Games\src\main\java\controlgames\controlgamesbd\view\CadastrarCliente.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\Compras.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\ControlGamesConnector.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\Desenvolvedores.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\DesenvolvedoresDAO.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\Jogos.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\JogosDAO.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\Usuarios.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\dao\UsuariosDAO.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\CadastrarCliente.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\CadastroDesenvolvedor.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\EditarJogo.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\LoginCliente.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\LoginDesenvolvedor.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\Loja.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\MeuPerfilEmpresa.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\MeuPerfilUsuario.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\MeusJogosEmpresa.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\MeusJogosUsuario.java
+C:\Users\Gabrielle\Documents\NetBeansProjects\ControlGamesBD\src\main\java\controlgames\controlgamesbd\view\NovoJogo.java

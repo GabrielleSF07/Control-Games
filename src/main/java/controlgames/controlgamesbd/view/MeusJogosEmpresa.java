@@ -3,6 +3,7 @@ import controlgames.controlgamesbd.dao.Desenvolvedores;
 import controlgames.controlgamesbd.dao.Jogos;
 import controlgames.controlgamesbd.dao.JogosDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class MeusJogosEmpresa extends javax.swing.JFrame {
     private static Desenvolvedores d;
@@ -39,6 +40,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         txtLucro.setText(String.valueOf(jogoAtual.getValor() * jogoAtual.getQuantidadeVendida()));
         txtFaixaEtaria.setText(jogoAtual.getFaixaEtaria());
     }
+    
 }
 
   
@@ -61,7 +63,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         txtNomeJogo = new javax.swing.JTextField();
         txtQntdeVendas = new javax.swing.JTextField();
         txtValor = new javax.swing.JTextField();
-        btnEditarJogo = new javax.swing.JButton();
+        btnEditarJ = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtLucro = new javax.swing.JTextField();
@@ -207,11 +209,11 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
             }
         });
 
-        btnEditarJogo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnEditarJogo.setText("Editar jogo");
-        btnEditarJogo.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarJ.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnEditarJ.setText("Editar ");
+        btnEditarJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarJogoActionPerformed(evt);
+                btnEditarJActionPerformed(evt);
             }
         });
 
@@ -265,7 +267,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnEditarJogo))
+                        .addComponent(btnEditarJ))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -316,7 +318,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtFaixaEtaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditarJogo)
+                .addComponent(btnEditarJ)
                 .addGap(24, 24, 24))
         );
 
@@ -327,7 +329,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,11 +427,11 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLucroActionPerformed
 
-    private void btnEditarJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarJogoActionPerformed
+    private void btnEditarJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarJActionPerformed
     EditarJogo tela = new EditarJogo(d);
     tela.setVisible(true);
     this.dispose();
-    }//GEN-LAST:event_btnEditarJogoActionPerformed
+    }//GEN-LAST:event_btnEditarJActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
         // TODO add your handling code here:
@@ -487,7 +489,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditarJogo;
+    private javax.swing.JButton btnEditarJ;
     private javax.swing.JButton btnMeusJogos;
     private javax.swing.JButton btnNovoJogo;
     private javax.swing.JButton btnPerfil;
