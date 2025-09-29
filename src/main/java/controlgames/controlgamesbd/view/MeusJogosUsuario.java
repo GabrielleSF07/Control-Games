@@ -314,7 +314,7 @@ public class MeusJogosUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-    Loja tela = new Loja();
+    Loja tela = new Loja(u);
     tela.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnLojaActionPerformed

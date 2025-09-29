@@ -64,6 +64,41 @@ import java.util.List;
         throw e;
     } finally {
         em.close();
+     }
     }
-} 
+   
+   public List<Jogos> listarTodos() {
+    return em.createQuery("SELECT j FROM Jogos j", Jogos.class)
+             .getResultList();
+  }
+   
+   public boolean usuarioJaComprou(Usuarios u, Jogos j) {
+    Long count = em.createQuery(
+        "SELECT COUNT(c) FROM Compras c WHERE c.usuario = :u AND c.jogo = :j", Long.class)
+        .setParameter("u", u)
+        .setParameter("j", j)
+        .getSingleResult();
+    return count > 0;
+    }
+   
+   public void comprarJogo(Usuarios u, Jogos j) {
+    try {
+        if (usuarioJaComprou(u, j)) {
+            System.out.println("Você já comprou este jogo.");
+            return; 
+        }
+
+        et.begin();
+        Compras c = new Compras();
+        c.setUsuario(u);
+        c.setJogo(j);
+        em.persist(c);
+        et.commit();
+        System.out.println("Jogo comprado com sucesso!");
+        
+    } catch (Exception e) {
+        if (et.isActive()) et.rollback();
+        throw e;
+    }
+   }
 }

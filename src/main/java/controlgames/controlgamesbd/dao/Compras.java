@@ -22,8 +22,6 @@ public class Compras {
     @Column(nullable = false)
     private int quantidade;
 
-
-
     public Long getId() {
         return id;
     }
@@ -55,7 +53,4 @@ public class Compras {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
-
-    
 }
