@@ -53,4 +53,17 @@ import java.util.List;
             em.close();
         }
     }
+    
+   public void editar(Jogos jogo) {
+    try {
+        et.begin();
+        em.merge(jogo);
+        et.commit();
+    } catch (Exception e) {
+        if (et.isActive()) et.rollback();
+        throw e;
+    } finally {
+        em.close();
+    }
+} 
 }

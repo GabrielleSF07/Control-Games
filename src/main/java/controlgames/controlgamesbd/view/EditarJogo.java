@@ -1,22 +1,23 @@
 package controlgames.controlgamesbd.view;
 import controlgames.controlgamesbd.dao.Desenvolvedores;
 import controlgames.controlgamesbd.dao.Jogos;
+import controlgames.controlgamesbd.dao.JogosDAO;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class EditarJogo extends javax.swing.JFrame {
     
-    private static Jogos jogo;
+    private Jogos jogo;
     private static Desenvolvedores d;
     private int indexAtual;
 
-    public EditarJogo(Desenvolvedores d) {
+    public EditarJogo(Desenvolvedores d, Jogos jogo, int indexAtual) {
         initComponents();
-        btnEditar.setEnabled(false);
         this.d = d;
+        this.jogo = jogo;
         this.indexAtual = indexAtual;
   
-        txtNome.setText(jogo.getNome());
+        txtNome.setText(d.getNome());
         txtNomeJogo.setText(jogo.getNome());
         txtDescricao.setText(jogo.getDescricao());
         txtCategoria.setText(jogo.getCategoria());
@@ -78,6 +79,7 @@ public class EditarJogo extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         txtNome.setEditable(false);
+        txtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnMeusJogos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnMeusJogos.setText("Meus Jogos");
@@ -253,36 +255,56 @@ public class EditarJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMeusJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusJogosActionPerformed
-
+    MeusJogosEmpresa tela = new MeusJogosEmpresa(d);
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnMeusJogosActionPerformed
 
     private void btnLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLojaActionPerformed
-
+    NovoJogo tela = new NovoJogo(d);
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnLojaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-
+    MeuPerfilEmpresa tela = new MeuPerfilEmpresa(d);
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    CadastrarCliente tela = new CadastrarCliente();
+    tela.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        jogo.setNome(txtNomeJogo.getText());
-        d.setNome(txtNome.getText());
-        jogo.setDescricao(txtDescricao.getText());
-        jogo.setCategoria(txtCategoria.getText());
-        jogo.setFaixaEtaria(txtFaixaEtaria.getText());
-        jogo.setValor(Double.parseDouble(txtValor.getText()));
+    try{
+        String nome = txtNomeJogo.getText();
+        String descricao = txtDescricao.getText();
+        String categoria = txtCategoria.getText();
+        String fxEtaria = txtFaixaEtaria.getText();
+        double valor = Double.parseDouble(txtValor.getText());
+        
+        if (nome.isEmpty() || descricao.isEmpty() || categoria.isEmpty() || fxEtaria.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
+            return;
+        }
 
-        txtNome.setText(jogo.getNome());
-        txtDescricao.setText(jogo.getDescricao());
-        txtCategoria.setText(jogo.getCategoria());
-        txtFaixaEtaria.setText(String.valueOf(jogo.getFaixaEtaria()));
-        txtValor.setText(String.valueOf(jogo.getValor()));
+        jogo.setNome(nome);
+        jogo.setDescricao(descricao);
+        jogo.setCategoria(categoria);
+        jogo.setFaixaEtaria(fxEtaria);
+        jogo.setValor(valor);
+        
+        JogosDAO dao = new JogosDAO();
+        dao.editar(jogo);
 
-       JOptionPane.showMessageDialog(this, "Jogo atualizado!");
+        JOptionPane.showMessageDialog(this, "Jogo atualizado com sucesso!");
+ 
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Erro ao editar jogo: " + e.getMessage());
+     }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**

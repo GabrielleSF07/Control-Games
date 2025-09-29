@@ -42,7 +42,6 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
     }
     
 }
-
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -428,9 +427,16 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLucroActionPerformed
 
     private void btnEditarJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarJActionPerformed
-    EditarJogo tela = new EditarJogo(d);
-    tela.setVisible(true);
-    this.dispose();
+    JogosDAO dao = new JogosDAO();
+    List<Jogos> listarJogosDev = dao.listarJogosDev(d);
+
+    if (indexAtual >= 0 && indexAtual < listarJogosDev.size()) {
+        Jogos jogoSelecionado = listarJogosDev.get(indexAtual);
+        EditarJogo tela = new EditarJogo(d, jogoSelecionado, indexAtual);
+        tela.setVisible(true);
+    } else {
+        JOptionPane.showMessageDialog(null, "Nenhum jogo selecionado ou índice inválido!");
+    }
     }//GEN-LAST:event_btnEditarJActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed

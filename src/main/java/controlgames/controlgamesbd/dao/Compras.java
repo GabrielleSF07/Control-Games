@@ -22,8 +22,6 @@ public class Compras {
     @Column(nullable = false)
     private int quantidade;
 
-    @Column(nullable = false)
-    private float valorTotal;
 
 
     public Long getId() {
@@ -58,13 +56,6 @@ public class Compras {
         this.quantidade = quantidade;
     }
 
-    public float getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(float valorTotal) {
-        this.valorTotal = valorTotal;
-    }
 
     
 }
