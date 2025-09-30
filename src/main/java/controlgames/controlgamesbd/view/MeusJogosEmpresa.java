@@ -25,7 +25,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         if (!jogos.isEmpty()) {
         indexAtual = 0;
         atualizarCampos();
-    }
+        }
     }
     
     private void atualizarCampos() {
@@ -39,10 +39,19 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         txtQntdeVendas.setText(String.valueOf(jogoAtual.getQuantidadeVendida()));
         txtLucro.setText(String.valueOf(jogoAtual.getValor() * jogoAtual.getQuantidadeVendida()));
         txtFaixaEtaria.setText(jogoAtual.getFaixaEtaria());
+      }
+    }
+  
+    private void limparCampos() {
+        txtNomeJogo.setText("");
+        txtValor.setText("");
+        txtDescricao.setText("");
+        txtCategoria.setText("");
+        txtQntdeVendas.setText("");
+        txtLucro.setText("");
+        txtFaixaEtaria.setText("");
     }
     
-}
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,6 +81,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         txtFaixaEtaria = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
+        btnExcluir = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -257,6 +267,14 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         txtDescricao.setAutoscrolls(false);
         jScrollPane1.setViewportView(txtDescricao);
 
+        btnExcluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -266,6 +284,8 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEditarJ))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
@@ -317,7 +337,9 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtFaixaEtaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditarJ)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarJ)
+                    .addComponent(btnExcluir))
                 .addGap(24, 24, 24))
         );
 
@@ -459,6 +481,40 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFaixaEtariaActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+    if (jogos != null && !jogos.isEmpty() && indexAtual >= 0 && indexAtual < jogos.size()) {
+        Jogos jogoAtual = jogos.get(indexAtual);
+
+        int confirm = JOptionPane.showConfirmDialog(this,
+                "Deseja realmente excluir o jogo \"" + jogoAtual.getNome() + "\"?",
+                "Confirmação", JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                JogosDAO dao = new JogosDAO();
+                dao.excluir(jogoAtual); 
+
+                jogos.remove(indexAtual);
+
+                if (jogos.isEmpty()) {
+                    limparCampos();
+                } else {
+                    if (indexAtual >= jogos.size()) {
+                        indexAtual = jogos.size() - 1;
+                    }
+                    atualizarCampos();
+                }
+
+                JOptionPane.showMessageDialog(this, "Jogo excluído com sucesso!");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Erro ao excluir: " + e.getMessage());
+            }
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Nenhum jogo selecionado.");
+    }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -496,6 +552,7 @@ public class MeusJogosEmpresa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditarJ;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnMeusJogos;
     private javax.swing.JButton btnNovoJogo;
     private javax.swing.JButton btnPerfil;

@@ -101,4 +101,21 @@ import java.util.List;
         throw e;
     }
    }
+   
+   public void excluir(Jogos jogo) {
+    try {
+        et.begin();
+        Jogos jogoGerenciado = em.find(Jogos.class, jogo.getId());
+        if (jogoGerenciado != null) {
+            em.remove(jogoGerenciado);
+        }
+        et.commit();
+    } catch (Exception e) {
+        if (et.isActive()) et.rollback();
+        throw e;
+    } finally {
+        em.close();
+    }
+    }
+
 }
