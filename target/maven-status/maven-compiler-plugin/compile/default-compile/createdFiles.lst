@@ -95,6 +95,7 @@ controlgames\controlgamesbd\dao\Jogos.class
 controlgames\controlgamesbd\view\MeusJogosEmpresa$10.class
 controlgames\controlgamesbd\view\MeuPerfilUsuario$3.class
 controlgames\controlgamesbd\view\MeusJogosEmpresa.class
+controlgames\controlgamesbd\dao\Criptografia.class
 controlgames\controlgamesbd\view\Loja$4.class
 controlgames\controlgamesbd\view\MeusJogosEmpresa$2.class
 controlgames\controlgamesbd\view\LoginCliente$7.class

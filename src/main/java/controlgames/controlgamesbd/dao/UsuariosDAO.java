@@ -55,10 +55,10 @@ public class UsuariosDAO {
     
    public Object[] listarDados(String email) {
     try {
-        String jpql = "SELECT u.nome, u.email, u.senha, COUNT(c) " +
+        String jpql = "SELECT u.nome, u.email, COUNT(c) " +
                       "FROM Usuarios u LEFT JOIN u.compras c " +
                       "WHERE u.email = :email " +
-                      "GROUP BY u.id, u.nome, u.email, u.senha";
+                      "GROUP BY u.id, u.nome, u.email";
         
         return em.createQuery(jpql, Object[].class)
                  .setParameter("email", email)

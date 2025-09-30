@@ -2,6 +2,7 @@ package controlgames.controlgamesbd.view;
 import controlgames.controlgamesbd.dao.Usuarios;
 import controlgames.controlgamesbd.dao.UsuariosDAO;
 import javax.swing.JOptionPane;
+import controlgames.controlgamesbd.dao.Criptografia;
 
 public class CadastrarCliente extends javax.swing.JFrame {
 
@@ -275,7 +276,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
             u.setEmail(email);
             u.setIdade(idade);
             u.setNome(nome);
-            u.setSenha(senha);
+            u.setSenha(Criptografia.getMD5(senha));
             
             dao.insereUsuario(u);
             JOptionPane.showMessageDialog(rootPane, "Usuário cadastrado com sucesso!, Seja bem-vindo, " + u.getNome());

@@ -1,5 +1,6 @@
 package controlgames.controlgamesbd.view;
 
+import controlgames.controlgamesbd.dao.Criptografia;
 import controlgames.controlgamesbd.dao.Usuarios;
 import controlgames.controlgamesbd.dao.UsuariosDAO;
 import javax.swing.JOptionPane;
@@ -221,15 +222,24 @@ public class LoginCliente extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
     String email = txtEmail.getText();
-    String senha = txtSenha.getText();
+    String senha = Criptografia.getMD5(txtSenha.getText());
     
     if(!email.isEmpty() && !senha.isEmpty()){
+        
     try{
     UsuariosDAO dao = new UsuariosDAO();
     Usuarios u = dao.buscarUsuario(email);
+    
     if(u != null){
+        
+       if(u.getSenha().equals(senha)){
        dao.loginUsuario(email, senha);
        JOptionPane.showMessageDialog(rootPane, "Seja bem-vindo novamente, " + u.getNome());
+       
+       }else{
+        JOptionPane.showMessageDialog(this, "Email ou senha incorreto!");
+        return;
+        }
        
        MeuPerfilUsuario tela = new MeuPerfilUsuario(u);
        tela.setVisible(true);
