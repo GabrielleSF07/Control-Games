@@ -267,6 +267,11 @@ public class CadastrarCliente extends javax.swing.JFrame {
             UsuariosDAO dao = new UsuariosDAO();
             Usuarios u = new Usuarios();
             
+            if (dao.buscarUsuario(email) != null) {
+            JOptionPane.showMessageDialog(rootPane, "Este e-mail já está cadastrado!");
+            return;
+            }
+            
             u.setEmail(email);
             u.setIdade(idade);
             u.setNome(nome);

@@ -248,36 +248,38 @@ public class CadastroDesenvolvedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        String nome = txtNomeEmpresa.getText();
-        String email = txtEmail.getText();
-        String senha = txtSenha.getText();
+    String nome = txtNomeEmpresa.getText();
+    String email = txtEmail.getText();
+    String senha = txtSenha.getText();
 
-        if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos corretamente");
-            return;
-        } else {
-        try { 
-            DesenvolvedoresDAO dao = new DesenvolvedoresDAO();
-            Desenvolvedores d = new Desenvolvedores();
-            
-            d.setEmail(email);
-            d.setNome(nome);
-            d.setSenha(senha);
-            
-            dao.insereDesenvolvedor(d);
-            JOptionPane.showMessageDialog(rootPane, "Empresa cadastrada com sucesso!, Seja bem-vindo, " + d.getNome());
-            
-            MeuPerfilEmpresa tela = new MeuPerfilEmpresa(d);
-            tela.setVisible(true);
-            this.dispose();
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar empresa: " + e.getMessage());
+    if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+        JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos corretamente");
+        return;
+    }
+
+    try { 
+        DesenvolvedoresDAO dao = new DesenvolvedoresDAO();
+
+        if (dao.buscarDesenvolvedores(email) != null) {
+            JOptionPane.showMessageDialog(rootPane, "Este e-mail já está cadastrado!");
             return;
         }
-           
-        }
-   
+
+        Desenvolvedores d = new Desenvolvedores();
+        d.setEmail(email);
+        d.setNome(nome);
+        d.setSenha(senha);
+
+        dao.insereDesenvolvedor(d);
+        JOptionPane.showMessageDialog(rootPane, "Empresa cadastrada com sucesso!, Seja bem-vindo, " + d.getNome());
+
+        MeuPerfilEmpresa tela = new MeuPerfilEmpresa(d);
+        tela.setVisible(true);
+        this.dispose();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar empresa: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnLoginDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginDesenvolvedorActionPerformed
